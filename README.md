@@ -2,6 +2,7 @@ sublime-spec-focuser
 ====================
 
 Sublime Text plugin for toggling focus on currently selected spec.
+
 http://stackoverflow.com/questions/5069677/how-do-i-run-only-specific-tests-in-rspec
 
 **NOTE:** This is *NOT* a Sublime plugin for yet-another Rspec runner.
