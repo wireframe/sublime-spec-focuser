@@ -1,4 +1,4 @@
-sublime-spec-toggler
+sublime-spec-focuser
 ====================
 
 Sublime Text plugin for toggling focus on currently selected spec
