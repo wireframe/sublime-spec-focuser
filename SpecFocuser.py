@@ -21,14 +21,14 @@ class SpecFocusCommand(sublime_plugin.TextCommand):
       focused_spec_matcher = '(it|describe|context).+, focus: true\s+do'
       match = re.search(focused_spec_matcher, line_text)
       if match:
-        print "Removing focused spec definition..."
+        print("Removing focused spec definition...")
         self.view.replace(edit, current_line, re.sub(', focus: true ', ' ', line_text))
         break
 
       spec_matcher = '(it|describe|context)\s?(.*)\sdo'
       match = re.search(spec_matcher, line_text)
       if match:
-        print "Adding focused spec definition..."
+        print("Adding focused spec definition...")
         self.view.replace(edit, current_line, re.sub(spec_matcher, r'\1 \2, focus: true do', line_text))
         break
 
