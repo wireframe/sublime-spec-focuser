@@ -1,0 +1,6 @@
+[
+  {
+    "keys": ["ctrl+alt+super+f"],
+    "command": "spec_focus"
+  }
+]

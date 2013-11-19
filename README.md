@@ -9,7 +9,7 @@ This plugin assumes you use a existing continuous testing framework
 solution than trying to run Rspec from within the context of SublimeText.
 
 ## Features
-* shortcut for toggling focus on currently highlighted spec
+* shortcut for toggling focus on currently highlighted spec (`CMD+ALT+CTRL+F`)
 * searches for closest defined spec
 * re-runnable to remove the focus keywords after complete
 

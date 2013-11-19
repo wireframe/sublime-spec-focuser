@@ -1,5 +1,5 @@
 [{
   "id": "specfocuser",
-  "caption": "Toggle focus on currently selected spec",
+  "caption": "Spec Focuser: Toggle focus on currently selected spec",
   "command": "spec_focus"
 }]
