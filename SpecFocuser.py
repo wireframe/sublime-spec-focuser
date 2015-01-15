@@ -34,3 +34,14 @@ class SpecFocusCommand(sublime_plugin.TextCommand):
 
       selection = sublime.Region(current_line.begin() - 1, current_line.begin() - 1)
       current_line = self.view.line(selection)
+
+# clear all "focus: true" tags from the current file
+class ClearSpecFocusCommand(sublime_plugin.TextCommand):
+    def run(self, edit):
+        print("Clearing all focus tags...")
+        view = self.view
+        matches = []
+        results = view.find_all(", focus: true", sublime.IGNORECASE, "", matches)
+        for i, thisregion in reversed(list(enumerate(results))):
+          view.replace(edit, thisregion, matches[i])
+

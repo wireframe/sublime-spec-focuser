@@ -1,5 +1,12 @@
-[{
-  "id": "specfocuser",
-  "caption": "Spec Focuser: Toggle focus on currently selected spec",
-  "command": "spec_focus"
-}]
+[
+  {
+    "id": "specfocuser",
+    "caption": "Spec Focuser: Toggle focus on currently selected spec",
+    "command": "spec_focus"
+  },
+  {
+    "id": "specfocuser",
+    "caption": "Spec Focuser: Remove all focus tags from current file",
+    "command": "clear_spec_focus"
+  }
+]
