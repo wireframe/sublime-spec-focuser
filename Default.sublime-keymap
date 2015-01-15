@@ -2,5 +2,9 @@
   {
     "keys": ["ctrl+alt+super+f"],
     "command": "spec_focus"
+  },
+  {
+    "keys": ["ctrl+alt+super+c"],
+    "command": "clear_spec_focus"
   }
 ]
