@@ -12,11 +12,12 @@ solution than trying to run Rspec from within the context of SublimeText.
 
 ## Features
 * searches for closest defined spec
-* adds `focus: true` configuration to closest `it`, `context`, or `describe` block
+* adds `:focus` configuration to closest `it`, `context`, or `describe` block
 * shortcut for toggling focus on currently highlighted spec (`CMD+ALT+CTRL+F`)
 * re-runnable to remove the focus keywords after complete
-* clears all `focus: true` tags from the current file
+* clears all `:focus` tags from the current file
 * shortcut for clearing focus tags on current file (`CMD+ALT+CTRL+C`)
+* ability to use the "old style" `focus: true` configuration
 
 ## Installation
 
@@ -24,13 +25,16 @@ Install via the great [Package Control Plugin Manager](https://sublime.wbond.net
 
 ## Usage
 
-**Add `focus: true` tag**
+**Add `:focus` tag**
 * Open control panel (ex: CMD+SHIFT+P)
 * select "Toggle Focus on currently selected spec" command
-* `focus: true` will be automatically added to the currently selected spec
+* `:focus` will be automatically added to the currently selected spec
 * Re-run command to remove the focus keywords
 
-**Clear all `focus: true` tags from the current file**
+**Clear all `:focus` tags from the current file**
 * Open control panel (ex: CMD+SHIFT+P)
 * select "Remove all focus tags from current file" command
-* all instances of `focus: true` will be removed from the current file
+* all instances of `:focus` will be removed from the current file
+
+**Use `focus: true` instead of the new `:focus` syntax**
+* Add `"spec_focus_old_style": true` to your preferences file

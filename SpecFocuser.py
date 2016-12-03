@@ -18,30 +18,40 @@ class SpecFocusCommand(sublime_plugin.TextCommand):
     while current_line.begin() >= 0:
       line_text = self.view.substr(current_line)
 
-      focused_spec_matcher = '(it|describe|context|scenario).+, focus: true\s+do'
+      focused_spec_matcher = '(it|describe|context|scenario).+, ' + SpecFocusSettings.focus_string() + '\s+do'
       match = re.search(focused_spec_matcher, line_text)
       if match:
         print("Removing focused spec definition...")
-        self.view.replace(edit, current_line, re.sub(', focus: true ', ' ', line_text))
+        self.view.replace(edit, current_line, re.sub(', ' + SpecFocusSettings.focus_string() + ' ', ' ', line_text))
         break
 
       spec_matcher = '(it|describe|context|scenario)\s?(.*)\sdo'
       match = re.search(spec_matcher, line_text)
       if match:
         print("Adding focused spec definition...")
-        self.view.replace(edit, current_line, re.sub(spec_matcher, r'\1 \2, focus: true do', line_text))
+        self.view.replace(edit, current_line, re.sub(spec_matcher, r'\1 \2, ' + SpecFocusSettings.focus_string() + ' do', line_text))
         break
 
       selection = sublime.Region(current_line.begin() - 1, current_line.begin() - 1)
       current_line = self.view.line(selection)
 
-# clear all "focus: true" tags from the current file
+# clear all ":focus" tags from the current file
 class ClearSpecFocusCommand(sublime_plugin.TextCommand):
     def run(self, edit):
         print("Clearing all focus tags...")
         view = self.view
         matches = []
-        results = view.find_all(", focus: true", sublime.IGNORECASE, "", matches)
+        results = view.find_all(", " + SpecFocusSettings.focus_string(), sublime.IGNORECASE, "", matches)
         for i, thisregion in reversed(list(enumerate(results))):
           view.replace(edit, thisregion, matches[i])
+
+class SpecFocusSettings():
+    @classmethod
+    def focus_string(cls):
+        s = sublime.load_settings('Preferences.sublime-settings')
+
+        if s.get('spec_focus_old_style', False):
+            return 'focus: true'
+        else:
+            return ':focus'
 
