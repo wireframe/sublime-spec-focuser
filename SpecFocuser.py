@@ -18,14 +18,14 @@ class SpecFocusCommand(sublime_plugin.TextCommand):
     while current_line.begin() >= 0:
       line_text = self.view.substr(current_line)
 
-      focused_spec_matcher = '(it|describe|context|scenario).+, ' + SpecFocusSettings.focus_string() + '\s+do'
+      focused_spec_matcher = '(it|describe|context|scenario|feature).+, ' + SpecFocusSettings.focus_string() + '\s+do'
       match = re.search(focused_spec_matcher, line_text)
       if match:
         print("Removing focused spec definition...")
         self.view.replace(edit, current_line, re.sub(', ' + SpecFocusSettings.focus_string() + ' ', ' ', line_text))
         break
 
-      spec_matcher = '(it|describe|context|scenario)\s?(.*)\sdo'
+      spec_matcher = '(it|describe|context|scenario|feature)\s?(.*)\sdo'
       match = re.search(spec_matcher, line_text)
       if match:
         print("Adding focused spec definition...")
