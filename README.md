@@ -12,7 +12,7 @@ solution than trying to run Rspec from within the context of SublimeText.
 
 ## Features
 * searches for closest defined spec
-* adds `:focus` configuration to closest `it`, `context`, or `describe` block
+* adds `:focus` configuration to closest `it`, `context`, `feature`, or `describe` block
 * shortcut for toggling focus on currently highlighted spec (`CMD+ALT+CTRL+F`)
 * re-runnable to remove the focus keywords after complete
 * clears all `:focus` tags from the current file
